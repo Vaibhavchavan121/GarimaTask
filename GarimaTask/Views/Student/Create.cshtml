@@ -1,0 +1,93 @@
+﻿@*@model GarimaTask.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+                <input type="hidden" asp-for="student.Id" class="form-control" />
+                
+            <div class="form-group">
+                <label asp-for="student.Name" class="control-label"></label>
+                <input asp-for="student.Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.Address" class="control-label"></label>
+                <textarea asp-for="student.Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.City" class="control-label"></label>
+                <select asp-for="student.City" class="form-control" asp-items="@(new SelectList(ViewBag.Cities))"
+                        data-val="true" data-val-required="Please select a city"></select>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="student.State" class="control-label"></label>
+                <select asp-for="student.State" class="form-control" asp-items="@(new SelectList(ViewBag.States))"
+                        data-val="true" data-val-required="Please select a state"></select>
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="student.RollNo" class="control-label"></label>
+                <input asp-for="student.RollNo" class="form-control" />
+                <span asp-validation-for="RollNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.Gender" class="control-label"></label><br />
+                <input type="radio" asp-for="student.Gender" value="Male" /> Male
+                <input type="radio" asp-for="student.Gender" value="Female" /> Female
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="student.Email" class="control-label"></label>
+                <input asp-for="student.Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.Mobile" class="control-label"></label>
+                <input asp-for="student.Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.Subject1" class="control-label"></label>
+                <input asp-for="student.Subject1" class="form-control" />
+                <span asp-validation-for="Subject1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.Subject2" class="control-label"></label>
+                <input asp-for="student.Subject2" class="form-control" />
+                <span asp-validation-for="Subject2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="student.Subject3" class="control-label"></label>
+                <input asp-for="student.Subject3" class="form-control" />
+                <span asp-validation-for="Subject3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+*@
